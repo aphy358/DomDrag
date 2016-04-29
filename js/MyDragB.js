@@ -4,7 +4,7 @@
 		var move = false; 		//标记控件是否处于被拖动状态
 		var dragOffsetX = 0; 	//控件左边界和鼠标X轴的差
 		var dragOffsetY = 0; 	//控件上边界和鼠标Y轴的差
-		var dragObj = this; 	//用于存储当前对象
+		var _this = this; 	//用于存储当前对象
 
 		this.mousedown(function(e) {
 			move = true;
@@ -23,11 +23,11 @@
 				//边界控制，document.documentElement.clientWidth：可见区域宽度  document.documentElement.clientHeight：可见区域高度
 				newX = newX < 0 ? 0 : newX;
 				newY = newY < 0 ? 0 : newY;
-				newX = newX > (document.documentElement.clientWidth - dragObj.outerWidth()) ? (document.documentElement.clientWidth - dragObj.outerWidth()) : newX;
-				newY = newY > (document.documentElement.clientHeight - dragObj.outerHeight()) ? (document.documentElement.clientHeight - dragObj.outerHeight()) : newY;
+				newX = newX > (document.documentElement.clientWidth - _this.outerWidth()) ? (document.documentElement.clientWidth - _this.outerWidth()) : newX;
+				newY = newY > (document.documentElement.clientHeight - _this.outerHeight()) ? (document.documentElement.clientHeight - _this.outerHeight()) : newY;
 
 				//把新的坐标重新赋值给控件
-				dragObj.css({
+				_this.css({
 					left: newX + "px",
 					top: newY + "px",
 					position: 'absolute'

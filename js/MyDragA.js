@@ -26,8 +26,8 @@
 			//边界控制，document.documentElement.clientWidth：可见区域宽度  document.documentElement.clientHeight：可见区域高度
 			newX = newX < 0 ? 0 : newX;
 			newY = newY < 0 ? 0 : newY;
-			newX = newX > (document.documentElement.offsetWidth - this.width) ? (document.documentElement.offsetWidth - this.width) : newX;
-			newY = newY > (document.documentElement.offsetHeight - this.height) ? (document.documentElement.offsetHeight - this.height) : newY;
+			newX = newX > (document.documentElement.clientWidth - this.width) ? (document.documentElement.clientWidth - this.width) : newX;
+			newY = newY > (document.documentElement.clientHeight - this.height) ? (document.documentElement.clientHeight - this.height) : newY;
 
 			//把新的坐标重新赋值给控件
 			$(this).css({
